@@ -9,6 +9,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class _1260 {
+
     public static int n, m, v;
     public static int[][] edges;
     public static boolean[] visited;
@@ -32,8 +33,8 @@ public class _1260 {
         }
 
         dfsByRecursive(v);
+//        dfsByStack(v);
         System.out.println();
-        visited = new boolean[n + 1];
         bfs(v);
 
     }
@@ -49,26 +50,28 @@ public class _1260 {
         }
     }
 
-    // stack 은 문제가 있음(해결 안됨)
     public static void dfsByStack(int v) {
+        visited = new boolean[n + 1];
         Stack<Integer> stack = new Stack<>();
         stack.push(v);
-        visited[v] = true;
+
         while (!stack.isEmpty()) {
             int data = stack.pop();
-            for (int i = 1; i <= n; i++) {
-                if (edges[data][i] == 1 && !visited[i]) {
-                    stack.push(i);
-                    visited[i] = true;
-                    break;
+            if (!visited[data]) {
+                System.out.print(data + " ");
+                visited[data] = true;
+                for (int i = n; i >= 1; i--) {
+                    if (edges[data][i] == 1 && !visited[i]) {
+                        stack.push(i);
+                    }
                 }
             }
-            System.out.print(data + " ");
         }
     }
 
     public static void bfs(int v) {
         Queue<Integer> queue = new LinkedList<>();
+        visited = new boolean[n + 1];
         queue.add(v);
         visited[v] = true;
         while (!queue.isEmpty()) {
