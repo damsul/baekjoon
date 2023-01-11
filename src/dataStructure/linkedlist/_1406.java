@@ -25,31 +25,28 @@ public class _1406 {
 
         while (n-- > 0) {
             String[] temp = br.readLine().split(" "); // 명령어 담을 공간 생성 및 명령어 입력
-            switch (temp[0]) {
-                case "L":  // 명령어 판단
-                    if (iterator.hasPrevious()) {
-                        iterator.previous(); // 명령어 실행
-                    }
-                    break;
-                case "D":
-                    if (iterator.hasNext()) {
-                        iterator.next();
-                    }
-                    break;
-                case "B":
-                    if (iterator.hasPrevious()) {
-                        iterator.previous();
-                        iterator.remove();
-                    }
-                    break;
-                case "P":
-                    String s = temp[1];
-                    iterator.add(s);
-                    break;
+            if (temp[0].equals("L")) { // 명령어 판단
+                if (iterator.hasPrevious()) {
+                    iterator.previous(); // 명령어 실행
+                }
+            }
+            else if (temp[0].equals("D")) {
+                if (iterator.hasNext()) {
+                    iterator.next();
+                }
+            }
+            else if (temp[0].equals("B")) {
+                if (iterator.hasPrevious()) {
+                    iterator.previous();
+                    iterator.remove();
+                }
+            }
+            else if (temp[0].equals("P")) {
+                String s = temp[1];
+                iterator.add(s);
             }
         } // 명령어 종료
 
-        System.out.println(String.join("", list)); // 문자 이어붙이기
-
+        System.out.println(String.join("", list)); // 문자열 출력( join : 문자배열 이어붙이기]
     }
 }
