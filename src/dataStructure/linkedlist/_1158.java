@@ -9,6 +9,46 @@ import java.util.StringTokenizer;
 public class _1158 {
 
     public static void main(String[] args) throws IOException {
+        mySolve();
+        otherSolve();
+    }
+
+    private static void otherSolve() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        String[] str = br.readLine().split(" ");
+        int n = Integer.parseInt(str[0]);
+        int k = Integer.parseInt(str[1]);
+
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 1; i <= n; i++) {
+            list.add(i);
+        }
+
+        int idx = k - 1;
+
+        sb.append("<");
+        while (true) {
+            if (list.size() == 1) {
+                sb.append(list.remove(idx)).append(">");
+            } else {
+                sb.append(list.remove(idx)).append(", ");
+            }
+            if (list.isEmpty()) {
+                break;
+            }
+
+            idx += (k - 1);
+            while (idx >= list.size()) {
+                idx -= list.size();
+            }
+
+        }
+        System.out.println(sb);
+    }
+
+    public static void mySolve() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
