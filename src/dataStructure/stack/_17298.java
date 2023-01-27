@@ -11,16 +11,15 @@ public class _17298 {
     public static void main(String[] args) throws IOException {
         // 3,5,2,7, -> 5,7,7,-1
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int[] data = new int[n];
-
-        Stack<Integer> stack = new Stack<>();
+        int N = Integer.parseInt(br.readLine());
+        int[] data = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             data[i] = Integer.parseInt(st.nextToken());
         }
 
-        for (int i = 0; i < n; i++) {
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < N; i++) {
             while (!stack.isEmpty() && data[stack.peek()] < data[i]) {
                 data[stack.pop()] = data[i];
             }
@@ -33,10 +32,12 @@ public class _17298 {
         }
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n; i++) {
-            sb.append(data[i]).append(" ");
+        for (int num : data) {
+            sb.append(num).append(" ");
         }
+
         System.out.println(sb);
+
     }
 
 }
