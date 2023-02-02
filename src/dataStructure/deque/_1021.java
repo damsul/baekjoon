@@ -28,13 +28,13 @@ public class _1021 {
         int cnt = 0;
         for (int i = 0; i < M; i++) {
             int targetIdx = deque.indexOf(findNum[i]);
-            int halfIdx;
+            int halfIdx = deque.size() / 2;
 
-            if (deque.size() % 2 == 0) {
-                halfIdx = deque.size() / 2 - 1;
-            } else {
-                halfIdx = deque.size() / 2;
-            }
+//            if (deque.size() % 2 == 0) {
+//                halfIdx = deque.size() / 2 - 1;
+//            } else {
+//                halfIdx = deque.size() / 2;
+//            }
 
             if (targetIdx <= halfIdx) {
                 while (findNum[i] != deque.getFirst()) {
