@@ -21,8 +21,8 @@ public class _1012 {
 
         while (T-- > 0) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            int M = Integer.parseInt(st.nextToken()); // 가로
-            int N = Integer.parseInt(st.nextToken()); // 세로
+            int M = Integer.parseInt(st.nextToken()); // 행
+            int N = Integer.parseInt(st.nextToken()); // 열
             int K = Integer.parseInt(st.nextToken()); // 배추 개수
 
             board = new int[52][52];
@@ -32,18 +32,18 @@ public class _1012 {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
-                board[y][x] = 1;
+                board[x][y] = 1;
             }
 
             int num = 0; // 지렁이 개수
             Queue<Point> q = new LinkedList<>();
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
+            for (int i = 0; i < M; i++) {
+                for (int j = 0; j < N; j++) {
                     if (visited[i][j] || board[i][j] != 1) continue; // 시작점 찾기
 
                     num++; // 시작점 찾으면 지렁이 수 증가
                     visited[i][j] = true; // 방문 표시
-                    q.add(new Point(j, i)); // 배추 시작점 넣기
+                    q.add(new Point(i, j)); // 배추 시작점 넣기
                     while (!q.isEmpty()) {
                         Point cur = q.poll();
 
@@ -52,9 +52,9 @@ public class _1012 {
                             int ny = cur.y + dy[dir];
 
                             if (nx < 0 || ny < 0 || nx >= M || ny >= N) continue; // 범위 확인
-                            if (visited[ny][nx] || board[ny][nx] != 1) continue; // 방문하지 않은 배추 찾기
+                            if (visited[nx][ny] || board[nx][ny] != 1) continue; // 방문하지 않은 배추 찾기
 
-                            visited[ny][nx] = true; // 찾은 배추 방문 표시
+                            visited[nx][ny] = true; // 찾은 배추 방문 표시
                             q.add(new Point(nx, ny)); // 배추 요소 증가
                         }
                     }
