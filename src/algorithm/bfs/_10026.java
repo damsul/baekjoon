@@ -47,33 +47,23 @@ public class _10026 {
             }
         }
 
-        int num1  = 0;
+        int num1 = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (visited[i][j]) continue;
 
-                if (board[i][j] == 'R') {
-                    num1++;
-                    bfs(i, j);
-                }
-                if (board[i][j] == 'G') {
-                    num1++;
-                    bfs(i, j);
-                }
-                if (board[i][j] == 'B') {
-                    num1++;
-                    bfs(i, j);
-                }
+                num1++;
+                bfs(i, j);
             }
         }
 
-        for (int i = 0; i < N; i++) {
-            Arrays.fill(visited[i], false); // 초기화
+        for (int i = 0; i < N; i++) { // 초기화
+            Arrays.fill(visited[i], false);
         }
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) { // R == G 초기화
             for (int j = 0; j < N; j++) {
-                if (board[i][j] == 'R') { // R == G 초기화
+                if (board[i][j] == 'R') {
                     board[i][j] = 'G';
                 }
             }
@@ -84,14 +74,8 @@ public class _10026 {
             for (int j = 0; j < N; j++) {
                 if (visited[i][j]) continue;
 
-                if (board[i][j] == 'G') {
-                    num2++;
-                    bfs(i, j);
-                }
-                if (board[i][j] == 'B') {
-                    num2++;
-                    bfs(i, j);
-                }
+                num2++;
+                bfs(i, j);
             }
         }
 
