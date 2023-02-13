@@ -83,6 +83,7 @@ public class _4179 {
                 q2.add(new Point(nx, ny));
             }
         }
+
         System.out.println("IMPOSSIBLE");
     }
 
