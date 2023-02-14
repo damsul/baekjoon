@@ -34,7 +34,6 @@ public class _7569 {
                         dist[i][j][k] = -1;
                     }
                     if (board[i][j][k] == 1) {
-                        dist[i][j][k] = 0; // 방문 표시
                         q.add(new Point(k, j, i)); // 익은 토마토 큐에 추가
                     }
                 }
