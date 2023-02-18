@@ -21,14 +21,15 @@ public class _15650 {
             return;
         }
 
-        for (int i = 1; i <= N; i++) {
+        int st = 1;
+        if (k != 0) st = arr[k - 1] + 1;
+
+        for (int i = st; i <= N; i++) {
             if (visited[i]) continue;
             arr[k] = i;
-            for (int j = 1; j <= i; j++)
-                visited[j] = true;
+            visited[i] = true;
             func(k + 1);
-            for (int j = 1; j <= i; j++)
-                visited[j] = false;
+            visited[i] = false;
         }
     }
 
