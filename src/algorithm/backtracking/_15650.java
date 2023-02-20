@@ -25,11 +25,11 @@ public class _15650 {
         if (k != 0) st = arr[k - 1] + 1;
 
         for (int i = st; i <= N; i++) {
-            if (visited[i]) continue;
+//            if (visited[i]) continue;
             arr[k] = i;
-            visited[i] = true;
+//            visited[i] = true;
             func(k + 1);
-            visited[i] = false;
+//            visited[i] = false;
         }
     }
 
