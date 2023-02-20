@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 public class _10989 {
     public static int N;
-    public static int[] arr = new int[10000001];
-    public static int[] tmp = new int[10000001];
+    public static int[] arr = new int[10001];
+    public static int[] tmp = new int[10001];
 
     public static void merge(int st, int en) {
         int mid = (st + en) / 2;
@@ -38,14 +38,20 @@ public class _10989 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
+            // arr[i] = Integer.parseInt(br.readLine());
+            int num = Integer.parseInt(br.readLine());
+            arr[num]++;
         }
 
-        mergeSort(0, N);
+//        mergeSort(0, N);
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < N; i++) {
-            sb.append(arr[i]).append('\n');
+        for (int i = 0; i <= 10000; i++) {
+//            sb.append(arr[i]).append('\n');
+            while (arr[i] > 0) {
+                sb.append(i).append('\n');
+                arr[i]--;
+            }
         }
         System.out.println(sb);
     }
