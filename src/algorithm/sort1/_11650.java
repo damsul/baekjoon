@@ -78,4 +78,9 @@ class Point implements Comparable<Point>{
         if (this.x == o.x) return this.y - o.y; // x가 같다면 y를 기준으로 오름차순 정렬
         return this.x - o.x; // x를 기준으로 오름차순 정렬
     }
+    // e1(1, 1)이고 e2(1, -1)이라고 했을 때 e1.x=1과 e2.x=1로 같다.
+    // 따라서 e1.y=1과 e2.y=-1을 비교한다. => return e1.y - e2.y; => 2로 양수이므로 두 원소의 위치를 교환한다.
+
+    // e1(2, 2)이고 e2(3, 3)이라고 했을 때 e1.x=2과 e2.x=3으로 같지 않다.
+    // => return e1.x - e2.x; => -1로 음수이므로 두 원소의 위치를 교환하지 않는다.
 }
