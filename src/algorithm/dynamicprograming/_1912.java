@@ -23,14 +23,17 @@ public class _1912 {
             dp[i] = data[i];
         }
 
+        max = dp[1];
         for (int i = 1; i <= n; i++) {
             dp[i] = Math.max(dp[i], dp[i - 1] + data[i]);
+            max = Math.max(max, dp[i]);
         }
-        Arrays.sort(dp, 1, n + 1); // 배열 idx 1 ~ n 까지 정렬
+//        Arrays.sort(dp, 1, n + 1); // 배열 idx 1 ~ n 까지 정렬
 //        Arrays.sort(dp); // 배열 전체 정렬
 //        int ans = Arrays.stream(dp).max().getAsInt(); // 배열 전체 정렬
-        System.out.println(dp[n]);
+//        System.out.println(dp[n]);
 //        System.out.println(ans);
+        System.out.println(max);
     }
 
 }
