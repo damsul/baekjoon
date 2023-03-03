@@ -3,7 +3,6 @@ package algorithm.dynamicprograming;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class _2156 {
 
@@ -20,7 +19,6 @@ public class _2156 {
 
         dp[1] = data[1];
         dp[2] = data[1] + data[2];
-        int max = -1;
         for (int i = 3; i <= n; i++) {
             dp[i] = Math.max(dp[i - 1],
                 Math.max(dp[i - 2] + data[i], dp[i - 3] + data[i - 1] + data[i]));
