@@ -12,38 +12,37 @@ public class _24060 {
     public static int[] tmp = new int[500_005];
 
 
-    /*public static void merge(int st, int en) {
+    public static void merge(int st, int en) {
         int mid = (st + en) / 2;
         int left = st;
-        int right = mid;
+        int right = mid + 1;
 
-        for (int i = st; i < en; i++) {
-            cnt++;
-            if (right == en) tmp[i] = arr[left++];
-            else if (left == mid) tmp[i] = arr[right++];
+        for (int i = st; i <= en; i++) {
+            if (right == en + 1) tmp[i] = arr[left++];
+            else if (left == mid + 1) tmp[i] = arr[right++];
             else if (arr[left] <= arr[right]) tmp[i] = arr[left++];
             else tmp[i] = arr[right++];
+        }
 
+        for (int i = st; i <= en; i++) {
+            cnt++;
             if (cnt == k) {
                 ans = tmp[i];
                 break;
             }
-        }
-        for (int i = st; i < en; i++) {
             arr[i] = tmp[i];
         }
     }
     public static void mergeSort(int st, int en) {
-        if (en - st == 1) return;
-
-        int mid = (st + en) / 2;
-        mergeSort(st, mid);
-        mergeSort(mid, en);
-        merge(st, en);
+        if (st < en) {
+            int mid = (st + en) / 2;
+            mergeSort(st, mid);
+            mergeSort(mid + 1, en);
+            merge(st, en);
+        }
     }
-    */
 
-    public static void merge(int st, int en) {
+    /*public static void merge(int st, int en) {
         int mid = (st + en) / 2;
         int left = st;
         int right = mid + 1;
@@ -78,7 +77,7 @@ public class _24060 {
         mergeSort(st, mid);
         mergeSort(mid + 1, en);
         merge(st, en);
-    }
+    }*/
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
